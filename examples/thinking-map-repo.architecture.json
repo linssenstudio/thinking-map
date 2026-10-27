@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Thinking Map 渲染管线",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    {
+      "id": "author",
+      "type": "external",
+      "label": "创作者",
+      "sublabel": "自然语言需求",
+      "pos": [
+        40,
+        180
+      ],
+      "size": [
+        120,
+        60
+      ]
+    },
+    {
+      "id": "ir",
+      "type": "backend",
+      "label": "JSON 规格",
+      "sublabel": "schema 校验",
+      "pos": [
+        250,
+        180
+      ],
+      "size": [
+        130,
+        60
+      ]
+    },
+    {
+      "id": "compiler",
+      "type": "backend",
+      "label": "布局编译器",
+      "sublabel": "自动路由",
+      "pos": [
+        460,
+        180
+      ],
+      "size": [
+        130,
+        60
+      ]
+    },
+    {
+      "id": "renderer",
+      "type": "frontend",
+      "label": "SVG 渲染器",
+      "sublabel": "五类图",
+      "pos": [
+        670,
+        180
+      ],
+      "size": [
+        130,
+        60
+      ]
+    },
+    {
+      "id": "viewer",
+      "type": "frontend",
+      "label": "交互查看器",
+      "sublabel": "单文件 HTML",
+      "pos": [
+        880,
+        180
+      ],
+      "size": [
+        130,
+        60
+      ]
+    },
+    {
+      "id": "export",
+      "type": "cloud",
+      "label": "导出",
+      "sublabel": "PNG / SVG / WebM",
+      "pos": [
+        880,
+        320
+      ],
+      "size": [
+        130,
+        60
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "a1",
+      "from": "author",
+      "to": "ir",
+      "label": "描述"
+    },
+    {
+      "id": "a2",
+      "from": "ir",
+      "to": "compiler",
+      "label": "validate"
+    },
+    {
+      "id": "a3",
+      "from": "compiler",
+      "to": "renderer",
+      "label": "几何"
+    },
+    {
+      "id": "a4",
+      "from": "renderer",
+      "to": "viewer",
+      "label": "deliver"
+    },
+    {
+      "id": "a5",
+      "from": "viewer",
+      "to": "export",
+      "variant": "dashed"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "原则",
+      "items": [
+        "产物优先，先写候选再调优",
+        "校验不通过就不交付"
+      ]
+    }
+  ]
+}
